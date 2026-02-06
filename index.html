@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Consign | Curated Resale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --gold: #d4af37;
+            --midnight: #0a0a0b;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdfdfd; 
+            color: #1a1a1a; 
+            scroll-behavior: smooth;
+        }
+
+        .serif { font-family: 'Bodoni Moda', serif; }
+        
+        /* Reveal on Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Premium Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Gold Gradient Text */
+        .gold-text {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* Admin Dashboard Glow */
+        #admin-dashboard {
+            background: radial-gradient(circle at top right, #1a1a1c, #0a0a0b);
+        }
+
+        /* Smooth Row Deletion */
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.9) translateX(20px);
+            transition: all 0.5s ease;
+        }
+
+        @keyframes gold-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .pulse-gold { animation: gold-pulse 2s infinite; }
+
+        .chat-glow { box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <nav class="border-b border-gray-100 py-6 px-10 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <h1 class="serif text-3xl font-bold tracking-tighter hover:scale-105 transition-transform cursor-pointer">LEGACY</h1>
+        <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-semibold">
+            <a href="#vault" class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-amber-700 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">The Vault</a>
+            <a href="#consign" class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-amber-700 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Consign with us</a>
+            <a href="#" class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-amber-700 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Authentication</a>
+        </div>
+        <div class="flex items-center space-x-5">
+            <span class="text-[11px] font-bold group cursor-pointer">
+                BAG <span class="bg-black text-white px-2 py-0.5 rounded-full ml-1 text-[9px] group-hover:bg-amber-700 transition">(0)</span>
+            </span>
+        </div>
+    </nav>
+
+    <section class="py-32 px-10 max-w-7xl mx-auto text-center reveal">
+        <span class="text-[10px] uppercase tracking-[0.6em] text-amber-600 mb-6 block font-bold">Luxury Resale Redefined</span>
+        <h2 class="serif text-5xl md:text-8xl mb-10 italic leading-tight">
+            Turn your archive into <br/>
+            <span class="gold-text font-bold">liquid assets.</span>
+        </h2>
+        <a href="#consign" class="inline-block bg-[#1a1a1a] text-white px-12 py-5 text-xs uppercase tracking-[0.3em] font-bold hover:bg-amber-900 hover:tracking-[0.4em] transition-all shadow-2xl">Start Selling</a>
+    </section>
+
+    <section id="vault" class="px-10 py-24 bg-[#fafafa] reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h3 class="serif text-4xl mb-2">Newly Authenticated</h3>
+                    <div class="h-1 w-20 bg-amber-800"></div>
+                </div>
+                <p class="text-xs text-gray-400 uppercase tracking-widest hover:text-black cursor-pointer transition">View All Arrivals →</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="product-card group cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-200 relative overflow-hidden mb-6 rounded-sm">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-400 italic text-sm">Image Placeholder</div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-700"></div>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1">Vintage Chronograph</p>
+                    <h4 class="serif text-xl font-medium">Patek Philippe Ref. 5270</h4>
+                    <p class="text-sm text-gray-500 mt-2">$145,000.00</p>
+                </div>
+
+                <div class="product-card group cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-200 relative overflow-hidden mb-6 rounded-sm">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-400 italic text-sm">Image Placeholder</div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-700"></div>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1">Handbags</p>
+                    <h4 class="serif text-xl font-medium">Hermès Birkin 30 Crocodile</h4>
+                    <p class="text-sm text-gray-500 mt-2">$62,000.00</p>
+                </div>
+
+                <div class="product-card group cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-200 relative overflow-hidden mb-6 rounded-sm">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-400 italic text-sm">Image Placeholder</div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-700"></div>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1">Collector Automotive</p>
+                    <h4 class="serif text-xl font-medium">1967 Ferrari 275 GTB/4</h4>
+                    <p class="text-sm text-amber-900 font-bold mt-2">Inquire for Price</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="consign" class="py-32 px-10 max-w-4xl mx-auto reveal">
+        <div class="text-center mb-16">
+            <h3 class="serif text-5xl mb-6">Ready to Consign?</h3>
+            <p class="text-gray-400 text-sm tracking-wide">Our global network of specialists is ready to provide a bespoke valuation of your assets.</p>
+        </div>
+        
+        <form id="consignmentForm" class="space-y-8 bg-white p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-50 rounded-xl" onsubmit="handleConsignment(event)">
+            <div class="grid grid-cols-2 gap-8">
+                <input type="text" id="fName" placeholder="First Name" required class="border-b border-gray-200 py-4 text-sm focus:border-amber-700 outline-none transition bg-transparent">
+                <input type="text" id="lName" placeholder="Last Name" required class="border-b border-gray-200 py-4 text-sm focus:border-amber-700 outline-none transition bg-transparent">
+            </div>
+            <input type="text" id="itemName" placeholder="Item Brand & Model" required class="w-full border-b border-gray-200 py-4 text-sm focus:border-amber-700 outline-none transition bg-transparent">
+            <select id="itemCat" class="w-full border-b border-gray-200 py-4 text-[10px] text-gray-500 focus:border-amber-700 outline-none transition bg-transparent uppercase tracking-[0.2em] font-bold">
+                <option>Category: Watches</option>
+                <option>Category: Handbags</option>
+                <option>Category: Fine Art</option>
+                <option>Category: Rare Spirits</option>
+            </select>
+            <textarea id="itemDesc" placeholder="Tell us about the condition and provenance..." rows="3" class="w-full border border-gray-100 bg-gray-50 p-6 rounded-lg text-sm focus:border-amber-700 focus:bg-white outline-none transition"></textarea>
+            <button type="submit" class="w-full bg-[#1a1a1a] text-white py-6 text-xs uppercase tracking-[0.4em] font-bold hover:bg-amber-800 transition shadow-xl rounded-sm">Submit for Appraisal</button>
+        </form>
+    </section>
+
+    <footer class="py-20 text-center border-t border-gray-100 text-[10px] text-gray-400 uppercase tracking-[0.5em]">
+        &copy; 2026 Legacy Consign International. All Rights Reserved.
+    </footer>
+
+    <div id="chat-toggle" onclick="toggleChat()" class="fixed bottom-10 right-10 w-16 h-16 bg-[#1a1a1a] rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:bg-amber-800 transition-all z-[100] group pulse-gold">
+        <svg class="w-7 h-7 text-white group-hover:rotate-12 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+    </div>
+
+    <div id="chat-window" class="fixed bottom-32 right-10 w-80 bg-white shadow-2xl rounded-3xl border border-gray-100 hidden flex-col z-[100] overflow-hidden transition-all transform scale-95 opacity-0">
+        <div class="bg-[#1a1a1a] p-4 text-white flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <div>
+                    <p class="text-[9px] uppercase tracking-widest opacity-60">Concierge</p>
+                    <p class="text-xs font-bold">Legacy Support</p>
+                </div>
+            </div>
+        </div>
+        <div id="chat-content" class="h-64 p-4 overflow-y-auto bg-[#fafafa] text-[13px] space-y-3">
+            <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100 max-w-[80%]">
+                Hello! How can we assist with your consignment today?
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-100 flex gap-2">
+            <input id="chat-input" type="text" placeholder="Type a message..." class="flex-1 text-xs outline-none">
+            <button onclick="sendMessage()" class="text-[10px] font-bold uppercase text-amber-800">Send</button>
+        </div>
+    </div>
+
+    <div id="notification-toast" class="fixed top-10 right-10 bg-white border-l-4 border-amber-600 shadow-2xl p-5 flex items-center gap-5 translate-x-[150%] transition-transform duration-700 z-[101] rounded-r-lg">
+        <div class="bg-amber-50 p-3 rounded-full">
+            <svg class="w-4 h-4 text-amber-800" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+        </div>
+        <div>
+            <p class="text-[10px] font-bold uppercase tracking-tighter text-gray-400">Market Update</p>
+            <p id="notif-text" class="text-xs font-semibold">A new Rolex Daytona has just been listed.</p>
+        </div>
+    </div>
+
+    <div id="admin-dashboard" class="fixed inset-0 z-[200] hidden overflow-y-auto p-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <h2 class="serif text-5xl text-white italic mb-2">Vault Command</h2>
+                    <div class="h-1 w-24 bg-amber-700"></div>
+                </div>
+                <button onclick="closeDashboard()" class="text-gray-500 hover:text-white uppercase text-[10px] tracking-widest border border-gray-800 px-6 py-2 rounded-full transition">Exit Secure Mode</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/5">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Total Vault Value</p>
+                    <p class="text-2xl text-white font-bold">$2,450,000</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/5">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Active Leads</p>
+                    <p id="leadCount" class="text-2xl text-white font-bold">14</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/5">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Avg. Commission</p>
+                    <p class="text-2xl text-white font-bold">12.5%</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/5">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Global Reach</p>
+                    <p class="text-2xl text-green-500 font-bold flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span> LIVE
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden">
+                <div class="p-6 border-b border-white/5 flex justify-between items-center bg-white/5">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-widest">Pending Appraisals</h3>
+                    <span id="newLabel" class="bg-amber-900/30 text-amber-500 text-[10px] px-3 py-1 rounded-full">3 NEW</span>
+                </div>
+                <table class="w-full text-left text-sm text-gray-400">
+                    <thead class="text-[10px] uppercase text-gray-600 border-b border-white/5">
+                        <tr>
+                            <th class="p-6">Item Name</th>
+                            <th class="p-6">Sender</th>
+                            <th class="p-6">Status</th>
+                            <th class="p-6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody" class="divide-y divide-white/5">
+                        <tr>
+                            <td class="p-6 text-white">Rolex Submariner 1980</td>
+                            <td class="p-6">John Doe</td>
+                            <td class="p-6 text-amber-500 italic">Awaiting Docs</td>
+                            <td class="p-6 flex gap-4">
+                                <button onclick="processLead(this)" class="text-blue-400 hover:underline">Review</button>
+                                <button onclick="deleteLead(this)" class="text-red-900 hover:text-red-500 transition uppercase text-[10px] tracking-tighter">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-6 text-white">Chanel Flap Bag</td>
+                            <td class="p-6">Jane Smith</td>
+                            <td class="p-6 text-green-500">Authenticated</td>
+                            <td class="p-6 flex gap-4">
+                                <button onclick="processLead(this)" class="text-blue-400 hover:underline">List in Vault</button>
+                                <button onclick="deleteLead(this)" class="text-red-900 hover:text-red-500 transition uppercase text-[10px] tracking-tighter">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- ANIMATIONS ON SCROLL ---
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            if (win.classList.contains('hidden')) {
+                win.classList.remove('hidden');
+                setTimeout(() => {
+                    win.classList.remove('scale-95', 'opacity-0');
+                    win.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } else {
+                win.classList.add('scale-95', 'opacity-0');
+                win.classList.remove('scale-100', 'opacity-100');
+                setTimeout(() => win.classList.add('hidden'), 300);
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const content = document.getElementById('chat-content');
+            if (!input.value) return;
+
+            content.innerHTML += `<div class="bg-amber-800 text-white p-3 rounded-lg shadow-sm ml-auto max-w-[80%]">${input.value}</div>`;
+            input.value = '';
+            content.scrollTop = content.scrollHeight;
+            
+            setTimeout(() => {
+                content.innerHTML += `<div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100 max-w-[80%] italic">One of our specialists will be with you shortly.</div>`;
+                content.scrollTop = content.scrollHeight;
+            }, 1000);
+        }
+
+        function showNotification(message) {
+            const toast = document.getElementById('notification-toast');
+            document.getElementById('notif-text').innerText = message;
+            toast.classList.remove('translate-x-[150%]');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-x-[150%]');
+            }, 5000);
+        }
+
+        // --- CONSIGNMENT HANDLER ---
+        let leads = 14;
+        function handleConsignment(event) {
+            event.preventDefault();
+            
+            const fName = document.getElementById('fName').value;
+            const lName = document.getElementById('lName').value;
+            const item = document.getElementById('itemName').value;
+            const cat = document.getElementById('itemCat').value;
+
+            const tableBody = document.getElementById('adminTableBody');
+            const row = document.createElement('tr');
+            row.className = "bg-amber-900/10 animate-pulse transition-all duration-500";
+            row.innerHTML = `
+                <td class="p-6 text-white font-bold">${item} (${cat.replace('Category: ', '')})</td>
+                <td class="p-6 text-gray-300">${fName} ${lName}</td>
+                <td class="p-6 text-amber-500 italic font-bold">New Submission</td>
+                <td class="p-6 flex gap-4">
+                    <button onclick="processLead(this)" class="text-blue-400 hover:underline">Review</button>
+                    <button onclick="deleteLead(this)" class="text-red-900 hover:text-red-500 transition uppercase text-[10px] tracking-tighter">Reject</button>
+                </td>
+            `;
+            tableBody.prepend(row);
+
+            leads++;
+            document.getElementById('leadCount').innerText = leads;
+            document.getElementById('newLabel').innerText = "NEW ACTIVITY";
+
+            showNotification(`New inquiry: ${item} from ${fName}`);
+            alert("Item submitted for appraisal! Check the dashboard (junior123) to see it.");
+            document.getElementById('consignmentForm').reset();
+        }
+
+        // --- ADMIN TOOL FUNCTIONS ---
+        function deleteLead(btn) {
+            const row = btn.closest('tr');
+            row.classList.add('fade-out');
+            setTimeout(() => {
+                row.remove();
+                leads--;
+                document.getElementById('leadCount').innerText = leads;
+                showNotification("Lead removed from system.");
+            }, 500);
+        }
+
+        function processLead(btn) {
+            btn.innerText = "Processing...";
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+            setTimeout(() => {
+                btn.innerText = "Done";
+                showNotification("Lead status updated.");
+            }, 1500);
+        }
+
+        // Dashboard Unlock Logic
+        let typedKeys = '';
+        const secretKey = "junior123";
+
+        window.addEventListener('keydown', (e) => {
+            typedKeys += e.key;
+            if (typedKeys.length > 20) typedKeys = typedKeys.substring(1);
+            
+            if (typedKeys.includes(secretKey)) {
+                openDashboard();
+                typedKeys = ''; 
+            }
+        });
+
+        function openDashboard() {
+            const dash = document.getElementById('admin-dashboard');
+            dash.classList.remove('hidden');
+            showNotification("Admin Access Granted: Welcome back.");
+        }
+
+        function closeDashboard() {
+            document.getElementById('admin-dashboard').classList.add('hidden');
+        }
+
+        // Simulate activity
+        setTimeout(() => showNotification("Someone just viewed your Birkin listing."), 3000);
+        setTimeout(() => showNotification("Price drop on: 1967 Ferrari 275."), 15000);
+    </script>
+</body>
+</html>
